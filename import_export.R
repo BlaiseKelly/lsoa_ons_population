@@ -80,4 +80,21 @@ for (f in filez){
   write.csv(pop_tots, "outputs/lsoa21_pop_tot_2011_2024.csv")  
   
   write.csv(pop_a_s, "outputs/lsoa21_pop_age_sex_2011_2024.csv")
+  
+  # Add top github release
+  piggyback::pb_new_release(repo = "blaisekelly/lsoa_ons_population", tag = "v0.1.1")
+  
+  # upload to GitHub Release so other scripts can download
+  piggyback::pb_upload(
+    file = paste0("outputs/lsoa21_pop_tot_2011_2024.csv"),
+    repo = "blaisekelly/lsoa_ons_population",
+    overwrite = TRUE,
+    tag = "v0.1.1")
+  
+  # upload to GitHub Release so other scripts can download
+  piggyback::pb_upload(
+    file = paste0("outputs/lsoa21_pop_age_sex_2011_2024.csv"),
+    repo = "blaisekelly/lsoa_ons_population",
+    overwrite = TRUE,
+    tag = "v0.1.1")
 
